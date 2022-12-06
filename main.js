@@ -38,7 +38,11 @@ addBtn.addEventListener('click', () => {
   onAdd();
 });
 
-input.addEventListener('keypress', event => {
+input.addEventListener('keydown', event => {
+  // 글자가 만들어지고 있는 중간에 발생하는 이벤트 무시
+  if (event.isComposing) {
+    return;
+  }
   // console.log('key');
   if(event.key === 'Enter') {
     onAdd();
